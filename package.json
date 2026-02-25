@@ -1,0 +1,97 @@
+{
+  "name": "faaah",
+  "displayName": "FAAAH",
+  "description": "Plays dramatic sound effects when tests fail (and more!) — because failures deserve to be felt.",
+  "version": "0.1.0",
+  "publisher": "AayushAtMars",
+  "icon": "media/faaah_logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aayu/faaah-vscode"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "test",
+    "sound",
+    "fail",
+    "faaah",
+    "audio",
+    "fun"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "faaah.playSound",
+        "title": "FAAAH: Play Sound"
+      },
+      {
+        "command": "faaah.toggle",
+        "title": "FAAAH: Toggle On/Off"
+      },
+      {
+        "command": "faaah.runScript",
+        "title": "FAAAH: Run Node Script"
+      }
+    ],
+    "configuration": {
+      "title": "FAAAH",
+      "properties": {
+        "faaah.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable FAAAH sound effects."
+        },
+        "faaah.volume": {
+          "type": "number",
+          "default": 1.0,
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Volume level (0.0 to 1.0). Only supported on macOS."
+        },
+        "faaah.detectFromTerminal": {
+          "type": "boolean",
+          "default": true,
+          "description": "Monitor terminal output for test failure patterns."
+        },
+        "faaah.sounds": {
+          "type": "object",
+          "default": {
+            "testFail": "faaah.wav"
+          },
+          "description": "Map of event names to sound file names (relative to the media/ folder). Add custom events here.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "faaah.cooldownMs": {
+          "type": "number",
+          "default": 3000,
+          "minimum": 0,
+          "description": "Cooldown in milliseconds between sound plays to avoid spam."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^3.0.0"
+  }
+}
