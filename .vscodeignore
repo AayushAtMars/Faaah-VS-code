@@ -6,3 +6,7 @@ src/**
 tsconfig.json
 node_modules/**
 generate-sound.js
+test.*
+test-it.*
+*.vsix
+package-lock.json

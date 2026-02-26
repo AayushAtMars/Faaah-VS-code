@@ -1,13 +1,13 @@
 {
-  "name": "faaah",
-  "displayName": "FAAAH",
+  "name": "faaah-sounds",
+  "displayName": "FAAAH Sounds",
   "description": "Plays dramatic sound effects when tests fail (and more!) — because failures deserve to be felt.",
   "version": "0.1.0",
   "publisher": "AayushAtMars",
   "icon": "media/faaah_logo.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aayu/faaah-vscode"
+    "url": "https://github.com/AayushAtMars/Faaah-VS-code"
   },
   "engines": {
     "vscode": "^1.85.0"
@@ -41,6 +41,10 @@
       {
         "command": "faaah.runScript",
         "title": "FAAAH: Run Node Script"
+      },
+      {
+        "command": "faaah.silentMode",
+        "title": "FAAAH: Cleanup Terminal UI (Silent Mode)"
       }
     ],
     "configuration": {
